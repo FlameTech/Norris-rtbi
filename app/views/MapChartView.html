@@ -1,0 +1,13 @@
+<div id="map_canvas" ng-controller="MapChartCtrl">
+	<div class="mapTableTitle">
+		<span ng-bind="graph.title"></span>
+	</div>
+  <map ng-attr-center="{{center}}" ng-attr-zoom="{{zoom}}" disable-default-u-i="true">
+  </map>
+  <div class="mapLegend" ng-attr-id="mapLegend{{graph.id}}" ng-if="graph.showLegend">
+  	<div class="legendLine" ng-repeat="item in legendItems">
+  		<div class="mapLegendColor" ng-style="{'background-color':item.color}"></div>
+  		<span ng-bind="item.name"></span>
+  	</div> 
+  </div>
+</div>

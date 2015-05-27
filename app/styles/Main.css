@@ -1,0 +1,67 @@
+/* Style file for Norris Front-end */
+/* 2015 FlameTech Inc. */
+
+/* Page style attributes */
+.container-fixed{
+  margin: 0 auto;
+}
+
+.pageTitle{
+	margin: 10px;
+	text-align: center;
+}
+.pageTitle h1{
+	margin:0;
+}
+
+.row{
+	margin:0;
+}
+
+.graphView{
+  padding:20px;
+}
+
+/* Charts style attributes */
+
+.lineChart{
+	margin:auto;
+	text-align:center;
+}
+.barChart{
+	margin:auto;
+	text-align:center;
+}
+
+.mapTableTitle{
+	margin:auto;
+	padding: 15px 0 8px;
+	text-align: center;
+	font-family: Arial;
+	font-size:13;
+	font-weight:bold;
+}
+
+.table{
+	text-align: center;
+}
+
+map{
+	margin:auto;
+	height:350px;
+	width:95%;
+	padding:5px;
+}
+
+.mapLegendColor{
+	width: 10px;
+	height: 10px;
+	display:inline-block;
+}
+
+.mapLegend{
+  background: rgba(255,255,255,0.9);
+  padding: 1em;
+  margin: 10px;
+  border: 2px solid #666;
+}

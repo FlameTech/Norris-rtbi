@@ -1,0 +1,64 @@
+{
+  "name": "norris-rtbi",
+  "version": "0.9.0",
+  "description": "Norris is a Node.js based framework developed for the purpose of creating real-time updating charts. Appearance and data of each chart are also fully configurable through the APIs provided by Norris. Real-time updates are obtained through WebSocket technology, therefore avoiding expensive polling operations.",
+  "contributors": [
+    {
+      "name": "Cardin Andrea",
+      "email": "andrea.cardin.3@studenti.unipd.it"
+    },
+    {
+      "name": "Faggin Andrea",
+      "email": "andrea.faggin.2@studenti.unipd.it"
+    },
+    {
+      "name": "Meneguzzo Francesco",
+      "email": "francesco.meneguzzo@studenti.unipd.it"
+    },
+    {
+      "name": "Merlo Gianluca",
+      "email": "gianluca.merlo.1@studenti.unipd.it"
+    },
+    {
+      "name": "Persegona Mattia",
+      "email": "mattia.persegona@studenti.unipd.it"
+    },
+    {
+      "name": "Sartor Michele",
+      "email": "michele.sartor.2@studenti.unipd.it"
+    },
+    {
+      "name": "Zanetti Davide",
+      "email": "davide.zanetti.2@studenti.unipd.it"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FlameTech/Norris-rtbi.git"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.3.15",
+    "socket.io-client": "1.3.0",
+    "json3": "^3.3.x",
+    "es5-shim": "~2.1.x",
+    "jquery": "^1.11.x",
+    "jquery-ui": "^1.11.x",
+    "angular-resource": "~1.3.x",
+    "angular-sanitize": "1.3.x",
+    "bootstrap": "~3.3.x",
+    "angular-google-chart": "latest",
+    "ngmap": "~1.7.10"
+  },
+  "resolutions": {
+    "angular": "^1.3.15"
+  }
+}

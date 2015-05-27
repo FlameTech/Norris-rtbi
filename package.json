@@ -1,0 +1,65 @@
+{
+  "name": "norris-rtbi",
+  "version": "0.9.0",
+  "description": "Norris is a Node.js based framework developed for the purpose of creating real-time updating charts. Appearance and data of each chart are also fully configurable through the APIs provided by Norris. Real-time updates are obtained through WebSocket technology, therefore avoiding expensive polling operations.",
+  "scripts": {
+    "postinstall": "node ./node_modules/bower/bin/bower install"
+  },
+  "contributors": [
+    {
+      "name": "Cardin Andrea",
+      "email":"andrea.cardin.3@studenti.unipd.it"
+    },
+    {
+      "name": "Faggin Andrea",
+      "email":"andrea.faggin.2@studenti.unipd.it"
+    },
+    {
+      "name": "Meneguzzo Francesco",
+      "email":"francesco.meneguzzo@studenti.unipd.it"
+    },
+    {
+      "name": "Merlo Gianluca",
+      "email":"gianluca.merlo.1@studenti.unipd.it"
+    },
+    {
+      "name": "Persegona Mattia",
+      "email":"mattia.persegona@studenti.unipd.it"
+    },
+    {
+      "name": "Sartor Michele",
+      "email":"michele.sartor.2@studenti.unipd.it"
+    },
+    {
+      "name": "Zanetti Davide",
+      "email":"davide.zanetti.2@studenti.unipd.it"
+    }
+  ],
+  "dependencies" : {
+    "express" : "^4.12.x",
+    "socket.io" : "1.3.0",
+    "bower" : "^1.4.x",
+    "ejs" : "^2.3.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FlameTech/Norris-rtbi.git"
+  },
+  "keywords": [
+    "norris",
+    "javascript",
+    "node",
+    "rtbi",
+    "real-time",
+    "express"
+  ],
+  "author": "FlameTech Inc. <flametech.inc@gmail.com> (http://flametech.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FlameTech/Norris-rtbi/issues"
+  },
+  "homepage": "http://flametech.github.io/",
+  "engines": {
+    "node": "0.12.x"
+  }
+}
