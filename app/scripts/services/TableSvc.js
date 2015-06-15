@@ -104,9 +104,6 @@ angular.module("Services")
                                             };
                               row.c.push(element);
                             }
-                            if(outData.rows.length>limit){
-                              
-                            }
                             if(inData.insertPosition == "bottom"){
                               if(outData.rows.length>=limit){
                                 outData.rows.shift();

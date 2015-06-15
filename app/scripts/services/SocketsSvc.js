@@ -16,7 +16,7 @@
 angular.module("Services")
   .factory('SocketsSvc', ["$rootScope", function ($scope) {
     var sockets = [];
-    return { 
+    return {
           /**
             * Description
             * Opens a new socket instance for the graph "id"

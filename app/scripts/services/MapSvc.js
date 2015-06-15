@@ -102,7 +102,7 @@ angular.module("Services")
 
     /**
      * Description
-     * Calculates the path betweent two points with Google Directions Service, 
+     * Calculates the path between two points with Google Directions Service, 
      * based on provided method, and then generates a Polyline representing it
      * @method buildPath
      * @param {Array} path
@@ -112,7 +112,7 @@ angular.module("Services")
      * @param {Array} method
      * @return void
      */
-    var buildPath = function(path, color, map, polylines, method) {
+    /*var buildPath = function(path, color, map, polylines, method) {
       var pathline = [];
       if(path.length==1){ // Recursion base, end of path
         return cnvLatLong(path[0]);
@@ -138,6 +138,34 @@ angular.module("Services")
               }
               // Generates the Polyline of the calculated path
               polylines.push(createPolyline(pathline,color,map));
+            }
+        });
+      }
+    };*/
+    var buildPath = function(path, color, map, polylines, method) {
+      var pathline = [];
+      var service = new google.maps.DirectionsService();
+      for(var i=0; i<path.length-1; i++) {
+        service.route({ origin: cnvLatLong(path[i]) // Consumes a point from the path
+                      , destination: cnvLatLong(path[i+1]) // Recursively calls itself for the next points
+                      , travelMode: setPathMode(method)
+                      }
+          , function(result, status) { // Async Callback, gets the response from Google Maps Directions
+            if(status == google.maps.DirectionsStatus.OK) {
+              var path = result.routes[0].overview_path;
+              var legs = result.routes[0].legs;
+              for (var i=0;i<legs.length;i++) { // Parses the subroutes between two points
+                var steps = legs[i].steps;
+                for (var j=0;j<steps.length;j++) {
+                  var nextSegment = steps[j].path;
+                  for (var k=0;k<nextSegment.length;k++) { // Pushes the segment on the path
+                    pathline.push(nextSegment[k]);
+                  }
+                }
+              }
+              // Generates the Polyline of the calculated path
+              polylines.push(createPolyline(pathline,color,map));
+              pathline = [];
             }
         });
       }

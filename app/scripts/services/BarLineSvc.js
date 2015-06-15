@@ -26,7 +26,7 @@ angular.module("Services")
             * @param {Array} outData
             * @return Array
             */
-            fillLineData : function (series,labels,inData,outData) {
+            fillLineData : function (series,labels,inData) {
                               var util = [];
                               var outData = [];
                               //Push series identifier
@@ -79,7 +79,7 @@ angular.module("Services")
               * @param {Number} seriesCount
               * @return Object
               */
-              setOpts: function (title, xAxisName, yAxisName, showGrid, showLegend, legendPosition, seriesCount) {
+              setOpts: function (title, xAxisName, yAxisName, showGrid, showLegend, legendPosition, seriesCount, orientation) {
                             var options = { displayExactValues: true
                                           , curveType: 'function'
                                           , animation: { duration: 500
@@ -98,13 +98,18 @@ angular.module("Services")
                             }
                             if (showLegend == true) {
                               options.legend = { position: legendPosition }; 
-                              if (legendPosition == "left") {
+                              if (legendPosition == "left" && orientation == "vertical") {
                                 options.series = [];
                                 for (var i=0;i<seriesCount;i++){
                                   options.series.push({targetAxisIndex: "1"});
                                 }
                               }
                             }
+                            else{
+                                options.legend = { position: "none" };
+                                options.series = [];
+                            }
+                            
                             return options;
              }
              

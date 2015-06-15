@@ -35,9 +35,12 @@ angular.module("Controllers")
     
     // Populating
     graphG.data = BarLineSvc.fillLineData($scope.graph.series, $scope.graph.labels, $scope.graph.data);
-    
     // Setting options
-    graphG.options = BarLineSvc.setOpts($scope.graph.title, $scope.graph.xAxisName, $scope.graph.yAxisName, $scope.graph.showGrid, $scope.graph.showLegend, $scope.graph.legendPosition, graphG.data[0].length-1); 
+
+    if($scope.graph.orientation == "horizontal")
+      graphG.options = BarLineSvc.setOpts($scope.graph.title, $scope.graph.yAxisName, $scope.graph.xAxisName, $scope.graph.showGrid, $scope.graph.showLegend, $scope.graph.legendPosition, graphG.data[0].length-1, $scope.graph.orientation);
+    else
+      graphG.options = BarLineSvc.setOpts($scope.graph.title, $scope.graph.xAxisName, $scope.graph.yAxisName, $scope.graph.showGrid, $scope.graph.showLegend, $scope.graph.legendPosition, graphG.data[0].length-1, $scope.graph.orientation); 
 
     // Setting colors
     graphG.options.colors = BarLineSvc.setColors($scope.graph.colors);
