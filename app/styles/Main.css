@@ -2,6 +2,11 @@
 /* 2015 FlameTech Inc. */
 
 /* Page style attributes */
+
+html, body{
+	font-family: 'Roboto', sans-serif;
+}
+
 .container-fixed{
   margin: 0 auto;
 }
@@ -37,7 +42,6 @@
 	margin:auto;
 	padding: 15px 0 8px;
 	text-align: center;
-	font-family: Arial;
 	font-size:13;
 	font-weight:bold;
 }

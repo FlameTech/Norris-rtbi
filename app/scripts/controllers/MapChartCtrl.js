@@ -63,7 +63,7 @@ angular.module("Controllers")
       }
       
       // And even the legend!
-      if($scope.graph.showLegend==true){
+      if($scope.graph.showLegend==true && $scope.graph.paths.length > 0){
         MapSvc.buildLegend(map, $scope.graph.mapLegendPosition, $scope.graph.id);
       }
       

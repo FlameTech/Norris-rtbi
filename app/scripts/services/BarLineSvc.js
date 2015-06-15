@@ -98,7 +98,7 @@ angular.module("Services")
                             }
                             if (showLegend == true) {
                               options.legend = { position: legendPosition }; 
-                              if (legendPosition == "left" && orientation == "vertical") {
+                              if (legendPosition == "left" && orientation != "horizontal") {
                                 options.series = [];
                                 for (var i=0;i<seriesCount;i++){
                                   options.series.push({targetAxisIndex: "1"});

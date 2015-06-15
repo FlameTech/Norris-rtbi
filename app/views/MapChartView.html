@@ -4,7 +4,7 @@
 	</div>
   <map ng-attr-center="{{center}}" ng-attr-zoom="{{zoom}}" disable-default-u-i="true">
   </map>
-  <div class="mapLegend" ng-attr-id="mapLegend{{graph.id}}" ng-if="graph.showLegend">
+  <div class="mapLegend" ng-attr-id="mapLegend{{graph.id}}" ng-if="graph.showLegend && graph.paths.length > 0">
   	<div class="legendLine" ng-repeat="item in legendItems">
   		<div class="mapLegendColor" ng-style="{'background-color':item.color}"></div>
   		<span ng-bind="item.name"></span>

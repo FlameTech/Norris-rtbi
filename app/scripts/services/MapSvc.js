@@ -96,6 +96,11 @@ angular.module("Services")
       var marker = new google.maps.Marker({ position: new google.maps.LatLng(point.latitude, point.longitude) 
                                           , map: map
                                           , title: point.id.toString()
+                                          , icon: { url: pathBase + '/icons/norris_mark_40.png'
+                                                  , size: new google.maps.Size(40,40)
+                                                  , origin: new google.maps.Point(0,0)
+                                                  , anchor: new google.maps.Point(11,40)
+                                                  }
                                           });
       return marker;
     }
@@ -112,42 +117,12 @@ angular.module("Services")
      * @param {Array} method
      * @return void
      */
-    /*var buildPath = function(path, color, map, polylines, method) {
-      var pathline = [];
-      if(path.length==1){ // Recursion base, end of path
-        return cnvLatLong(path[0]);
-      }
-      else {
-        var service = new google.maps.DirectionsService();
-        service.route({ origin: cnvLatLong(path.pop()) // Consumes a point from the path
-                      , destination: buildPath(path) // Recursively calls itself for the next points
-                      , travelMode: setPathMode(method)
-                      }
-          , function(result, status) { // Async Callback, gets the response from Google Maps Directions
-            if(status == google.maps.DirectionsStatus.OK) {
-              var path = result.routes[0].overview_path;
-              var legs = result.routes[0].legs;
-              for (var i=0;i<legs.length;i++) { // Parses the subroutes between two points
-                var steps = legs[i].steps;
-                for (var j=0;j<steps.length;j++) {
-                  var nextSegment = steps[j].path;
-                  for (var k=0;k<nextSegment.length;k++) { // Pushes the segment on the path
-                    pathline.push(nextSegment[k]);
-                  }
-                }
-              }
-              // Generates the Polyline of the calculated path
-              polylines.push(createPolyline(pathline,color,map));
-            }
-        });
-      }
-    };*/
     var buildPath = function(path, color, map, polylines, method) {
       var pathline = [];
       var service = new google.maps.DirectionsService();
       for(var i=0; i<path.length-1; i++) {
-        service.route({ origin: cnvLatLong(path[i]) // Consumes a point from the path
-                      , destination: cnvLatLong(path[i+1]) // Recursively calls itself for the next points
+        service.route({ origin: cnvLatLong(path[i]) // Sets the starting point
+                      , destination: cnvLatLong(path[i+1]) // And the next point in the path
                       , travelMode: setPathMode(method)
                       }
           , function(result, status) { // Async Callback, gets the response from Google Maps Directions
