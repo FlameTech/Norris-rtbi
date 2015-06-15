@@ -1,12 +1,9 @@
 {
   "name": "norris-rtbi",
   "version": "0.0.1",
-  "private": true,
   "description": "Norris is a Node.js based framework developed for the purpose of creating real-time updating charts. Appearance and data of each chart are also fully configurable through the APIs provided by Norris. Real-time updates are obtained through WebSocket technology, therefore avoiding expensive polling operations.",
-  "main": "Back-end/dev.js",
   "scripts": {
-    "start": "node Back-end/dev.js",
-    "postinstall": "node ./node_modules/bower/bin/bower install"
+    "postinstall": "bower install"
   },
   "contributors": [
     {
