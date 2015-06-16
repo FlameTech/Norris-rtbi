@@ -46,5 +46,4 @@ describe('TU81 - BarChartModel()', function() {
     barChartModel._valueType.should.be.exactly("value");
     barChartModel._decimals.should.be.exactly("decimals");
   });
-  
 });

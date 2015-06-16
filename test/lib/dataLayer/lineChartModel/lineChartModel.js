@@ -46,5 +46,4 @@ describe('TU80 - LineChartModel()', function() {
     lineChartModel._decimals.should.be.exactly("decimals");
     lineChartModel._labelsLimit.should.be.exactly("labels limit");
   });
-  
 });

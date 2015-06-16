@@ -24,7 +24,7 @@ resourcesPageStub[1] = { _id: 1
 		       , _columns: 3
 		       };
 		      
-// Checking all four cases
+//Checking all four cases
 var BarChartModel = function(id) { this._id = id; };
 var LineChartModel = function(id) { this._id = id; };
 var MapChartModel = function(id) { this._id = id; };
@@ -81,7 +81,7 @@ describe('TU1 - PageController.getPageInfo()', function() {
   
   it('Should fail when called on a page containing an invalid graph', function() {
     resourcesStub[4] = "not a graph";
-    resourcesPageStub[1]._data.push(4); // Added the "graph" to the page
+    resourcesPageStub[1]._data.push(4); //Added the "graph" to the page
     var check = true;
     var pageInfo = undefined;
     try{

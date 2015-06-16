@@ -52,5 +52,4 @@ describe('TU83 - TableModel()', function() {
     tableModel._format.should.be.exactly("cells format");
     tableModel._rowsLimit.should.be.exactly("rows limit");
   });
-  
 });

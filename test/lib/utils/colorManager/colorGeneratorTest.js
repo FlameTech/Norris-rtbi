@@ -10,6 +10,7 @@
  *  Codifica modulo
  * =================================================
  */
+
 'use strict';
 
 var should = require('should');
@@ -22,5 +23,4 @@ describe('TU39 - colorManager.colorGenerator(num)', function () {
     var colors = colorGenerator(97);
     colors.length.should.be.exactly(97);
   });
-  
 });

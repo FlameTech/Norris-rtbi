@@ -12,6 +12,7 @@
  */
 
 'use strict';
+
 var proxyquire = require('proxyquire');
 var should = require('should');
 
@@ -62,5 +63,4 @@ describe('TU1 - socketController.setSocket()', function() {
     managerCheck.should.be.exactly(true);
     socketStub.should.be.exactly("socket namespace");
   });
-  
 });

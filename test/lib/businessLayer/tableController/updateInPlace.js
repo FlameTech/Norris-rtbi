@@ -12,6 +12,7 @@
  */
 
 'use strict';
+
 var proxyquire = require('proxyquire');
 var should = require('should');
 
@@ -22,22 +23,9 @@ var updateCheck = undefined;
 
 var stub = {
   './ActiveResourcesController.js' : {
-    /**
-      * Description
-      * @method retrieveGraph
-      * @param {Number} id
-      * @return Object
-      */ 
     retrieveGraph: function(id) {return resourcesStub[id];}
   },
   './SocketController.js': {
-    /**
-      * Description
-      * @method sendUpdate
-      * @param {Number} id
-      * @param {Object} options
-      * @return void
-      */
     sendUpdate: function(id, options) {
       updateCheck = {}; 
       updateCheck.id = id;
@@ -66,8 +54,7 @@ var tableController = proxyquire('../../../../lib/businessLayer/TableController.
 
 describe('TU11 - tableController.updateInPlace()', function() {
   
-  it('Should fail when called with an invalid row index < 0', function()
-  {
+  it('Should fail when called with an invalid row index < 0', function() {
     tableController.updateInPlace(0, -1, 1, 1);
     should.not.exist(updateCheck);
   });

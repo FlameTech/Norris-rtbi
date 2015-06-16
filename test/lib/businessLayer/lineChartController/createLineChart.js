@@ -238,5 +238,4 @@ describe('TU5 - lineChartController.createLineChart()', function() {
     modelStub.lineOptions.valueType.should.be.exactly("dollars");
     modelStub.lineOptions.decimals.should.be.exactly(0);
   });
-  
 });

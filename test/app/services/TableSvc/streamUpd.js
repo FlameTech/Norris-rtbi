@@ -57,7 +57,6 @@ describe('TU67 - TableSvc.streamUpd()', function() {
   }));
   
   //test
-  //generic, no differences between top bottom border and shit
   it('Should correctly add the new row', function() {
     TableSvc.streamUpd(inData1, outData, limit1);
     expect(outData.rows.length).toBe(2);

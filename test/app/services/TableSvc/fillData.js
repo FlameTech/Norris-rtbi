@@ -70,8 +70,5 @@ describe('TU65 - TableSvc.fillData()', function() {
     border = false;
     var value = TableSvc.fillData(headers,inData,colors,border);
     expect(value.rows[0].c[0].p.style).toBe("color:#FFFFFF;background-color:#FFFFFF;");
-
   });
-  
-  
 });

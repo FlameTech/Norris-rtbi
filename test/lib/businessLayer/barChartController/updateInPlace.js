@@ -12,6 +12,7 @@
  */
 
 'use strict';
+
 var proxyquire = require('proxyquire');
 var should = require('should');
 
@@ -21,22 +22,11 @@ var updateCheck = undefined;
 
 var stub = {
     './ActiveResourcesController.js' : { 
-    /**
-      * Description
-      * @method retrieveGraph
-      * @param {Number} id
-      * @return Object
-      */
+    
     retrieveGraph: function(id) { return resourcesStub[id]}
     },
     './SocketController.js': { 
-    /**
-      * Description
-      * @method sendUpdate
-      * @param {Number} id
-      * @param {Object} options
-      * @return void
-      */
+    
     sendUpdate: function(id, options) { updateCheck = {}; updateCheck.id = id; 
       updateCheck.options = options; }}
 };
@@ -46,22 +36,22 @@ var barChartController = proxyquire('../../../../lib/businessLayer/BarChartContr
 describe('TU11 - barChartController.updateInPlace()', function() {
 
   it('Should fail when called with an invalid label parameter', function() {
-    barChartController.updateInPlace(2, 3, 0, 1);  // Label 3 doesn't exist
+    barChartController.updateInPlace(2, 3, 0, 1);  //Label 3 doesn't exist
     should.not.exist(updateCheck);
   });
   
   it('Should fail when called with an invalid data set index parameter >= set.length', function() {
-    barChartController.updateInPlace(2, 1, 2, 1);  // Set 2 doesn't exist
+    barChartController.updateInPlace(2, 1, 2, 1);  //Set 2 doesn't exist
     should.not.exist(updateCheck);
   });
   
   it('Should fail when called with an invalid data set index parameter < 0', function() {
-    barChartController.updateInPlace(2, 1, -1, 1);  // Set -1 doesn't exist
+    barChartController.updateInPlace(2, 1, -1, 1);  //Set -1 doesn't exist
     should.not.exist(updateCheck);
   });
    
   it('Should execute correctly when called with valid parameters', function() {
-    barChartController.updateInPlace(2, 1, 0, 1);  // Every parameter is valid
+    barChartController.updateInPlace(2, 1, 0, 1);  //Every parameter is valid
     should.exist(updateCheck);
     updateCheck.id.should.be.exactly(2);
     updateCheck.options.type.should.be.exactly("inPlace");

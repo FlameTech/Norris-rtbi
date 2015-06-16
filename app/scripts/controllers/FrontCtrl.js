@@ -15,25 +15,25 @@
 
 angular.module("Controllers")
   .controller("FrontCtrl", [ "$scope", "FrontSvc", "FirstConnectSvc", function ($scope, FrontSvc, FirstConnectSvc){
-      // Sends a GET the request to the back-end
+      //Sends a GET the request to the back-end
       FirstConnectSvc.get(
         function success(data) { // Callback function when data is ready
           var _data = data;
           $scope.nspSock = _data.namespace;
           $scope.title = _data.data.title;
-          // If page has no preset width, make it full width
+          //If page has no preset width, make it full width
           if(_data.data.pageWidth == 0)
             $scope.pageWidth = "100%";
           else
             $scope.pageWidth = _data.data.pageWidth;
-          // Creates rows and columns structure of the page
+          //Creates rows and columns structure of the page
           $scope.rows = FrontSvc.createRows(_data.data.data, _data.data.columns);
           var colClass = Math.floor(12/_data.data.columns);
           var colMdClass = "col-md-" + colClass;
           var colSmClass = "col-sm-" + (colClass/2);
           $scope.styleClass = colMdClass + " " + colSmClass + " graphView";
         },
-        // In case of callback error, report it
+        //In case of callback error, report it
         function error(err){
           console.log(err);
         }

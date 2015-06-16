@@ -10,6 +10,7 @@
  *  Codifica modulo
  * =================================================
  */
+
 'use strict';
 
 var should = require('should');
@@ -41,5 +42,4 @@ describe('TU88 - colorManager.colorGenerator(num)', function () {
     parsedColor.green.should.be.exactly(255);
     parsedColor.blue.should.be.exactly(255);
   });
-  
 });

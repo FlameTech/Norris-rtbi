@@ -12,6 +12,7 @@
  */
 
 'use strict';
+
 var proxyquire = require('proxyquire');
 var should = require('should');
 
@@ -46,12 +47,6 @@ var stub = {
   },
   
   './ActiveResourcesController.js' : {
-    /**
-      * Description
-      * @method retrieveGraph
-      * @param {Number} id
-      * @return Object
-      */ 
     retrieveGraph: function(id) {return resourcesStub[id];},
     storeGraph: function(id, graph) { 
       storeCheck = {};

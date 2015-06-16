@@ -221,7 +221,6 @@ describe('TU20 - PageController.createPage()', function() {
   
   it('Should throw error \'2003\' when the columns option given is <1', function() 
   {
-    
     var errCheck = false;
     var errNum = undefined;
     try {
@@ -237,7 +236,6 @@ describe('TU20 - PageController.createPage()', function() {
   
   it('Should throw error \'2003\' when the columns option given is >12', function() 
   {
-    
     var errCheck = false;
     var errNum = undefined;
     try {
@@ -250,6 +248,4 @@ describe('TU20 - PageController.createPage()', function() {
     should.exist(errNum);
     errNum.should.be.exactly(2003);
   });
-  
 });
-

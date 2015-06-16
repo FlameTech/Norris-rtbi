@@ -24,13 +24,13 @@ angular.module("Services")
     * @return $resource
     */
     function($resource, $location) {
-      // Gets the location
+      //Gets the location
       var url = $location.absUrl();
-      // Trims it and adds the raw path
+      //Trims it and adds the raw path
       if(url.charAt(url.length-1) == "/")
         url = url +'raw';
       else
         url = url +'/raw';
-      // Return the resource
+      //Returns the resource
       return $resource(url);
   }]);

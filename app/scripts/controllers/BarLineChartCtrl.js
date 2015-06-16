@@ -15,38 +15,38 @@
 
 angular.module("Controllers")
   .controller("BarLineChartCtrl", [ "$scope", "SocketsSvc", "BarLineSvc", "$window", function ($scope, SocketsSvc, BarLineSvc, $window) {
-    // WebSocket opening
+    //WebSocket opening
     SocketsSvc.open($scope.graph.id, $scope.$parent.nspSock);
-    // WebSocket connection message
+    //WebSocket connection message
     SocketsSvc.on($scope.graph.id, 'connect', function() {
       SocketsSvc.emit($scope.graph.id, 'joinRoom', $scope.graph.id);
       console.log("Connected on socket " + $scope.graph.id);
     });
-    // WebSocket reconnection message
+    //WebSocket reconnection message
     SocketsSvc.on($scope.graph.id, "reconnect", function() {
       $window.location.reload();
     });
-    // WebSocket disconnect message
+    //WebSocket disconnect message
     SocketsSvc.on($scope.graph.id, "disconnect", function() {
       alert("Il grafico " + $scope.graph.id + " ha perso la connessione al server Norris." );
     }); 
     
     var graphG = {};
     
-    // Populating
+    //Populating
     graphG.data = BarLineSvc.fillLineData($scope.graph.series, $scope.graph.labels, $scope.graph.data);
-    // Setting options
+    //Setting options
 
     if($scope.graph.orientation == "horizontal")
       graphG.options = BarLineSvc.setOpts($scope.graph.title, $scope.graph.yAxisName, $scope.graph.xAxisName, $scope.graph.showGrid, $scope.graph.showLegend, $scope.graph.legendPosition, graphG.data[0].length-1, $scope.graph.orientation);
     else
       graphG.options = BarLineSvc.setOpts($scope.graph.title, $scope.graph.xAxisName, $scope.graph.yAxisName, $scope.graph.showGrid, $scope.graph.showLegend, $scope.graph.legendPosition, graphG.data[0].length-1, $scope.graph.orientation); 
 
-    // Setting colors
+    //Setting colors
     graphG.options.colors = BarLineSvc.setColors($scope.graph.colors);
     
     var formatPattern = "";
-    // Sets the value symbol, if not null
+    //Sets the value symbol, if not null
     if($scope.graph.valueType !== null) {
       if($scope.graph.valueType === "euro") {
         formatPattern += "€";
@@ -59,21 +59,21 @@ angular.module("Controllers")
       }
     }
     formatPattern += " #,##0.";
-    // Sets the number of decimal digits
+    //Sets the number of decimal digits
     for(var i = 0; i<$scope.graph.decimals;i++) {
       formatPattern +="0";
     }
     graphG.formatters = {
       number : []
     }; 
-    // Associating formatters with their Serie
+    //Associating formatters with their Series
     for(var i = 1; i<$scope.graph.series.length +1; i++) {
       graphG.formatters.number.push({ columnNum: i
                                     , pattern: formatPattern
                                     });
     }
     
-    // Inputing data to the model
+    //Inputing data to the model
     if ($scope.graph.type == "LineChart"){
       graphG.type = "LineChart";
       $scope.LineChart = graphG;
@@ -87,16 +87,16 @@ angular.module("Controllers")
       $scope.BarChart = graphG;
     }
     
-    // Update logic
+    //Update logic
     SocketsSvc.on($scope.graph.id, "update", function(info) {
       var data = JSON.parse(info);
       if(data.type == "inPlace")
         graphG.data[data.label+1][data.set+1] = data.data;
       else if(data.type == "stream") {
         var newRow = data.data;
-        // Pushes new data in row
+        //Pushes new data in row
         newRow.unshift(data.label);
-        // Checks if data is over limit
+        //Checks if data is over limit
         if(graphG.data.length>$scope.graph.labelsLimit){
           graphG.data.splice(1,1);
         }

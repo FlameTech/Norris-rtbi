@@ -236,5 +236,4 @@ describe('TU5 - barChartController.createBarChart()', function() {
     modelStub.barOptions.valueType.should.be.exactly("dollars");
     modelStub.barOptions.decimals.should.be.exactly(0);
   });
-  
 });

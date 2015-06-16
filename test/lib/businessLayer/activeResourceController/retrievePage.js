@@ -53,5 +53,4 @@ describe('TU42 - activeResourcesController.retrievePage()', function() {
     check.should.be.exactly(true);
     page.should.be.exactly("not undefined");
   });
-  
 });

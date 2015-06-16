@@ -32,5 +32,4 @@ describe('TU78 - socketService.isSocketNamespace()', function() {
     var check = socketService.isSocketNamespace(socket.listen(2000).of("/namespace"));
     check.should.be.exactly(true);
   });
-  
 });

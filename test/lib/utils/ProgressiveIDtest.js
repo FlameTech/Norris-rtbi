@@ -1,7 +1,9 @@
 /**
  * New node file
  */
+
 'use strict';
+
 var should = require('should');
 var ProgressiveID = require('../../../lib/utils/ProgressiveID.js');
 describe('TU32 - ProgressiveID', function (){

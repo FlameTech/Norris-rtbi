@@ -20,23 +20,10 @@ resourcesStub[2] = { _id: 2, _points: [{id: "id", latitude:10, longitude:10}]};
 var updateCheck = undefined;
 
 var stub = {
-    './ActiveResourcesController.js' : { 
-    /**
-      * Description
-      * @method retrieveGraph
-      * @param {Number} id
-      * @return Object
-      */
+    './ActiveResourcesController.js' : {
     retrieveGraph: function(id) { return resourcesStub[id]}
     },
-    './SocketController.js': { 
-      /**
-	* Description
-	* @method sendUpdate
-	* @param {Number} id
-	* @param {Object} options
-	* @return void
-	*/
+    './SocketController.js': {
       sendUpdate: function(id, options) { updateCheck = {}; updateCheck.id = id; 
 	updateCheck.options = options; }
     }

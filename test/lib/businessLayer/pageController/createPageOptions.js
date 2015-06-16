@@ -12,6 +12,7 @@
  */
 
 'use strict';
+
 var proxyquire = require('proxyquire');
 var should = require('should');
 
@@ -58,5 +59,4 @@ describe('TU45 - pageController.createPageOptions()', function() {
     modelStub.pageWidth.should.be.exactly(0);
     modelStub.columns.should.be.exactly(5);
   });
-  
 });

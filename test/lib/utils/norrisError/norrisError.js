@@ -10,6 +10,7 @@
  *  Codifica modulo
  * =================================================
  */
+
 'use strict';
 
 var should = require('should');
@@ -42,5 +43,4 @@ describe('TU6 - NorrisError()', function () {
       new NorrisError(1000).should.throw(/^JSON Options Error [-1]/);
     } catch(e) {}
   });
-  
 });

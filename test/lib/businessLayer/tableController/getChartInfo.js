@@ -13,6 +13,7 @@
  */
 
 'use strict';
+
 var proxyquire = require('proxyquire');
 var should = require('should');
 
@@ -56,21 +57,4 @@ describe('TU1 - tableController.getChartInfo()', function() {
     }
     check.should.be.exactly(true);
   });
-  
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

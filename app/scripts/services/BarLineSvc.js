@@ -40,7 +40,7 @@ angular.module("Services")
                               for(var i=1; i<=labels.length;i++){
                                 util = [];
                                 util.push(labels[i-1]);
-                                //For each serie push data
+                                //For each series push data
                                 for(var j=1;j<=series.length;j++){
                                   util.push(inData[j-1][i-1]); 
                                 }

@@ -28,5 +28,4 @@ describe('TU79 - PageModel()', function() {
     pageModel._pageWidth.should.be.exactly("page width");
     pageModel._columns.should.be.exactly("columns");
   });
-  
 });

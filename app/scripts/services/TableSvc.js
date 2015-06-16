@@ -30,7 +30,7 @@ angular.module("Services")
                          var data = { cols: []
                                     , rows: []
                                     };
-                         // Filling headers
+                         //Filling headers
                          for(var i=0; i<headers.length; i++){
                            var col = { "id": headers[i]
                                      , "label": headers[i]
@@ -39,13 +39,13 @@ angular.module("Services")
                                      };
                            data.cols.push(col);
                          }
-                        // Filling Data
+                        //Filling Data
                          for(var i=0; i<inData.length; i++){
                             var row = { "c": [] };
                             for(var j=0; j<inData[i].length; j++) {
-                              // Font color
+                              //Font color
                               var fontStyle = ColorsSvc.rgbToHex(colors[i][j][1].red, colors[i][j][1].green, colors[i][j][1].blue);
-                              // Background color
+                              //Background color
                               var bgStyle = ColorsSvc.rgbToHex(colors[i][j][0].red, colors[i][j][0].green, colors[i][j][0].blue);
                               var style = "color:" + fontStyle + ";background-color:" + bgStyle + ";";
                               if(border) {
@@ -70,9 +70,9 @@ angular.module("Services")
               * @return void
               */
                inPlaceUpd: function (inData, outData) {
-                             // Set the correct data into the correct place
+                             //Set the correct data into the correct place
                              outData.rows[inData.row].c[inData.column].v = inData.data;
-                             // Colorize
+                             //Colorize
                              var style = "color:" + ColorsSvc.rgbToHex(inData.colorFont.red, inData.colorFont.green, inData.colorFont.blue) + ";background-color:" + ColorsSvc.rgbToHex(inData.colorCell.red, inData.colorCell.green, inData.colorCell.blue) + ";";
                              if(inData.border) {
                                style = style + "border: 2px solid black;";

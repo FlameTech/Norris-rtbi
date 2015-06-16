@@ -13,6 +13,7 @@
  */
 
 'use strict';
+
 var proxyquire = require('proxyquire');
 var should = require('should');
 
@@ -69,7 +70,7 @@ describe('TU48 - DataConsistency.checkOrientation()', function() {
   it('Should execute correctly when called with orientation: vertical', function() {
     var check = true;
     try{
-      dataConsistency.jsonConsistencyCheck({orientation: "vertical"}, barOptions);  // Label does match
+      dataConsistency.jsonConsistencyCheck({orientation: "vertical"}, barOptions);  //Label does match
     }catch(err){
       if(err === 1002)
         check = false;
@@ -79,7 +80,7 @@ describe('TU48 - DataConsistency.checkOrientation()', function() {
   it('Should execute correctly when called with orientation: horizontal', function() {
     var check = true;
     try{
-      dataConsistency.jsonConsistencyCheck({orientation: "horizontal"}, barOptions);  // Label does match
+      dataConsistency.jsonConsistencyCheck({orientation: "horizontal"}, barOptions);  //Label does match
     }catch(err){
       if(err === 1002)
         check = false;
@@ -89,7 +90,7 @@ describe('TU48 - DataConsistency.checkOrientation()', function() {
   it('Should fail when called with an invalid orientation value', function() {
     var check = true;
     try{
-      dataConsistency.jsonConsistencyCheck({orientation: "invalidLabel"}, barOptions);  // Label doesn't match
+      dataConsistency.jsonConsistencyCheck({orientation: "invalidLabel"}, barOptions);  //Label doesn't match
     }catch(err){
       if(err === 1002)
         check = false;
@@ -99,7 +100,7 @@ describe('TU48 - DataConsistency.checkOrientation()', function() {
   it('Should fail when called with an invalid orientation value', function() {
     var check = true;
     try{
-      dataConsistency.jsonConsistencyCheck({orientation: 5}, barOptions);  // Label doesn't match
+      dataConsistency.jsonConsistencyCheck({orientation: 5}, barOptions);  //Label doesn't match
     }catch(err){
       if(err === 1002)
         check = false;
@@ -184,7 +185,7 @@ describe('TU49 - DataConsistency.checkLegendPosition()', function(){
     }
     check.should.be.exactly(true);
     });
-    // line chart
+    //line chart
     it('Should fail when called with a number on a line chart', function(){
       var check = true;
       try{
@@ -262,7 +263,7 @@ describe('TU49 - DataConsistency.checkLegendPosition()', function(){
 });
 
 describe('TU50 - DataConsistency.checkMapLegendPosition()', function(){
-  // bar chart
+  //bar chart
   it('Should fail when called with a number on a map chart', function(){
     var check = true;
     try{
@@ -430,8 +431,7 @@ describe('TU52 - DataConsistency.pathMode()', function(){
 });
 
 describe('TU53 - DataConsistency.checkOrderBy()', function(){
-  
-    it('Should fail when called with column undefined', function(){
+  it('Should fail when called with column undefined', function(){
     var check = true;
     try{
       //should not accept wrong string values
@@ -515,7 +515,6 @@ describe('TU53 - DataConsistency.checkOrderBy()', function(){
 });
 
 describe('TU54 - DataConsistency.checkInsertPosition()', function(){
-  
   it('Should fail when called on column with insertPosition not equals to "top" or "bottom"', function(){
     var check = true;
     try{
@@ -1065,7 +1064,7 @@ describe('TU90 - DataConsistency.checkPropertyShowing()', function() {
   it('Should execute correctly when called with grid: true', function() {
     var check = true;
     try{
-      dataConsistency.jsonConsistencyCheck({grid: true}, barOptions);  // Label does match
+      dataConsistency.jsonConsistencyCheck({grid: true}, barOptions);  //Label does match
     }catch(err){
       if(err === 1003)
         check = false;
@@ -1075,7 +1074,7 @@ describe('TU90 - DataConsistency.checkPropertyShowing()', function() {
   it('Should fail when called with an invalid grid value', function() {
     var check = true;
     try{
-      dataConsistency.jsonConsistencyCheck({grid: 5}, barOptions);  // Label doesn't match
+      dataConsistency.jsonConsistencyCheck({grid: 5}, barOptions);  //Label doesn't match
     }catch(err){
       if(err === 1003)
         check = false;

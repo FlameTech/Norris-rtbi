@@ -12,6 +12,7 @@
  */
 
 'use strict';
+
 var proxyquire = require('proxyquire');
 var should = require('should');
 
@@ -30,5 +31,4 @@ describe('TU1 - page.getPageInfo()', function() {
     var page = new Page();
     page.getPageInfo().should.be.exactly("page n. 2 info");
   });
-  
 });

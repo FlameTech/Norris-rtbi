@@ -12,6 +12,7 @@
  */
 
 'use strict';
+
 var proxyquire = require('proxyquire');
 var should = require('should');
 
@@ -23,22 +24,9 @@ var updateCheck;
 
 var stub = {
   './ActiveResourcesController.js' : {
-    /**
-      * Description
-      * @method retrieveGraph
-      * @param {Number} id
-      * @return Object
-      */ 
     retrieveGraph: function(id) {return resourcesStub[id];}
   },
   './SocketController.js': {
-    /**
-      * Description
-      * @method sendUpdate
-      * @param {Number} id
-      * @param {Object} options
-      * @return void
-      */
     sendUpdate: function(id, options) {
       updateCheck = {}; 
       updateCheck.id = id;

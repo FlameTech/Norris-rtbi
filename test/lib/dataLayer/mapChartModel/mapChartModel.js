@@ -41,5 +41,4 @@ describe('TU82 - MapChartModel()', function() {
     mapChartModel._colors.should.be.exactly("colors");
     mapChartModel._zoom.should.be.exactly("zoom");
   });
-  
 });

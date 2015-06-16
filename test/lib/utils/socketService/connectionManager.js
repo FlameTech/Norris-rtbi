@@ -29,14 +29,14 @@ describe('TU40 - socketService.connectionManager()', function() {
     socketService.connectionManager();
     
     should.not.exist(socketStub.nsps['/'].adapter.rooms[2]);
-    // No socket connected, room empty
+    //No socket connected, room empty
     
     var socketClientStub = socketClient.connect('http://localhost:5000');
     socketClientStub.on('connect', function() {
       socketClientStub.emit('joinRoom', 2); 
     });
     
-    setTimeout(function() { // Waits for the connection
+    setTimeout(function() { //Waits for the connection
       should.exist(socketStub.nsps['/'].adapter.rooms[2]);
     }, 1000);
   });

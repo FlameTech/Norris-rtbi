@@ -12,6 +12,7 @@
  */
 
 'use strict';
+
 var proxyquire = require('proxyquire');
 var should = require('should');
 
@@ -20,23 +21,10 @@ resourcesStub[2] = { _id: 2, _labels: [1,2], _data: [[3,4]] };
 var updateCheck = undefined;
 
 var stub = {
-    './ActiveResourcesController.js' : { 
-    /**
-      * Description
-      * @method retrieveGraph
-      * @param {Number} id
-      * @return Object
-      */
+    './ActiveResourcesController.js' : {
     retrieveGraph: function(id) { return resourcesStub[id]}
     },
-    './SocketController.js': { 
-    /**
-      * Description
-      * @method sendUpdate
-      * @param {Number} id
-      * @param {Object} options
-      * @return void
-      */
+    './SocketController.js': {
     sendUpdate: function(id, options) { updateCheck = {}; updateCheck.id = id; 
       updateCheck.options = options; }}
 };
@@ -46,23 +34,23 @@ var lineChartController = proxyquire('../../../../lib/businessLayer/LineChartCon
 describe('TU11 - lineChartController.updateInPlace()', function() {
 
   it('Should fail when called with an invalid label parameter', function() {
-    lineChartController.updateInPlace(2, 3, 0, 1);  // Label 3 doesn't exist
+    lineChartController.updateInPlace(2, 3, 0, 1);  //Label 3 doesn't exist
     should.not.exist(updateCheck);
   });
   
   it('Should fail when called with an invalid data set index parameter >= set.length', function() {
-    lineChartController.updateInPlace(2, 1, 2, 1);  // Set 2 doesn't exist
+    lineChartController.updateInPlace(2, 1, 2, 1);  //Set 2 doesn't exist
     should.not.exist(updateCheck);
   });
   
   it('Should fail when called with an invalid data set index parameter < 0', function() {
-    lineChartController.updateInPlace(2, 1, -1, 1);  // Set -1 doesn't exist
+    lineChartController.updateInPlace(2, 1, -1, 1);  //Set -1 doesn't exist
     should.not.exist(updateCheck);
   });
   
    
   it('Should execute correctly when called with valid parameters', function() {
-    lineChartController.updateInPlace(2, 1, 0, 1);  // Every parameter is valid
+    lineChartController.updateInPlace(2, 1, 0, 1);  //Every parameter is valid
     should.exist(updateCheck);
     updateCheck.id.should.be.exactly(2);
     updateCheck.options.type.should.be.exactly("inPlace");

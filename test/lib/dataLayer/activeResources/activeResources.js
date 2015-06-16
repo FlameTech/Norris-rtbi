@@ -12,6 +12,7 @@
  */
 
 'use strict';
+
 var should = require('should');
 
 var storeCheck = undefined;
@@ -35,5 +36,4 @@ describe('TU46 - ActiveResources()', function() {
     stub1.graphs[0].should.be.exactly(stub2.graphs[0]);
     stub1.pages[0].should.be.exactly(stub2.pages[0]);   
   });
-  
 });

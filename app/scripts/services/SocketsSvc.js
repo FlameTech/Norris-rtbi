@@ -26,7 +26,7 @@ angular.module("Services")
             * @return void
             */
             open: function (id, namespace){
-               // Opens new connection
+               //Opens new connection
                sockets[id] = io.connect(namespace, {forceNew : true});
              }
            , 
@@ -40,7 +40,7 @@ angular.module("Services")
             * @return void
             */
             on: function (id, eventName, callback) {
-               // Calls the socket function to listen, applies the callback to the scope when it happens
+               //Calls the socket function to listen, applies the callback to the scope when it happens
                sockets[id].on(eventName, function () {
                  var args = arguments;
                  $scope.$apply(function () {
@@ -60,7 +60,7 @@ angular.module("Services")
             * @return void
             */
             emit: function (id, eventName, data, callback) {
-              // Calls the socket function to emit the event and its data
+              //Calls the socket function to emit the event and its data
                sockets[id].emit(eventName, data, function () {
                  var args = arguments;
                  $scope.$apply(function () {

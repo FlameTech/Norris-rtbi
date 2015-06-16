@@ -12,6 +12,7 @@
  */
 
 'use strict';
+
 var proxyquire = require('proxyquire');
 var should = require('should');
 
@@ -22,22 +23,9 @@ var updateCheck = undefined;
 
 var stub = {
     './ActiveResourcesController.js' : { 
-    /**
-      * Description
-      * @method retrieveGraph
-      * @param {Number} id
-      * @return Object
-      */
-    retrieveGraph: function(id) { return resourcesStub[id]}
+      retrieveGraph: function(id) { return resourcesStub[id]}
     },
-    './SocketController.js': { 
-    /**
-      * Description
-      * @method sendUpdate
-      * @param {Number} id
-      * @param {Object} options
-      * @return void
-      */
+    './SocketController.js': {
     sendUpdate: function(id, options) { updateCheck = {}; updateCheck.id = id; 
       updateCheck.options = options;
     }}
@@ -49,7 +37,7 @@ describe('TU11 - lineChartController.updateStream()', function() {
   
   it('Should fail when called with an invalid label parameter', function()
   {
-    lineChartController.updateStream(2, 1, [5]); // Label 1 alredy exists
+    lineChartController.updateStream(2, 1, [5]); //Label 1 already exists
     should.not.exist(updateCheck);
   });
   
@@ -79,6 +67,4 @@ describe('TU11 - lineChartController.updateStream()', function() {
     resourcesStub[1]._data[0].length.should.be.exactly(2);
     resourcesStub[1]._data[0].should.containDeep([3,5]);
   });
-});
-    
-    
+}); 
