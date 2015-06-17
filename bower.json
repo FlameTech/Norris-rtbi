@@ -1,7 +1,7 @@
 {
   "name": "norris-rtbi-frontend",
-  "version": "0.9.8",
-  "description": "Norris is a Node.js based framework developed for the purpose of creating real-time updating charts. Appearance and data of each chart are also fully configurable through the APIs provided by Norris. Real-time updates are obtained through WebSocket technology, therefore avoiding expensive polling operations.",
+  "version": "0.9.9",
+  "description": "A built-in AngularJS frontend for Norris, which displays charts made with Norris framework in a no-frills way, without the need to be configured. Real-time updates are obtained through Socket.io library, avoiding expensive polling operations.",
   "contributors": [
     {
       "name": "Cardin Andrea",

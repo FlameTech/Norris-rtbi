@@ -13,9 +13,6 @@
 
 'use strict';
 
-var pathBase = 'app';
-
-
 describe('TU73 - MapSvc.createMarker()', function() {
   
   var MapSvc; 
