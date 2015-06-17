@@ -1,6 +1,6 @@
 {
   "name": "norris-rtbi-frontend",
-  "version": "0.9.9",
+  "version": "1.0.0",
   "description": "A built-in AngularJS frontend for Norris, which displays charts made with Norris framework in a no-frills way, without the need to be configured. Real-time updates are obtained through Socket.io library, avoiding expensive polling operations.",
   "contributors": [
     {
