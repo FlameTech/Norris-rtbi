@@ -30,8 +30,7 @@ angular.module("Controllers")
           $scope.rows = FrontSvc.createRows(_data.data.data, _data.data.columns);
           var colClass = Math.floor(12/_data.data.columns);
           var colMdClass = "col-md-" + colClass;
-          var colSmClass = "col-sm-" + (colClass/2);
-          $scope.styleClass = colMdClass + " " + colSmClass + " graphView";
+          $scope.styleClass = colMdClass + " graphView";
         },
         //In case of callback error, report it
         function error(err){
